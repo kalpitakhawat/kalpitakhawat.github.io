@@ -1,0 +1,1 @@
+jQuery(document).scroll(function(){var item=jQuery(".navbar-default .navbar-nav > li > a");item.blur()});
