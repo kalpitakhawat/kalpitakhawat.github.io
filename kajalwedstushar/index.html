@@ -34,12 +34,6 @@
 <script type='text/javascript' src='wp-includes/js/jquery/jquery-migrate.min.js'></script>
 <script type='text/javascript' src='wp-content/themes/perfect-couple/js/html5shiv.js'></script>
 <script type='text/javascript' src='wp-content/themes/perfect-couple/js/pace.min.js'></script>
-<script type="text/javascript">
-	function play(){
-		var ado= document.getElementById('myaudio');
-		ado.play();
-	}
-</script>
 <link rel='https://api.w.org/' href='wp-json/wp-json.html'/>
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc.xml"/>
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml"/>
@@ -50,7 +44,12 @@
 <link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embed.xml"/>
 <meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>
 <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><!--[if IE  8]><link rel="stylesheet" type="text/css" href="wp-content/plugins/js_composer/assets/css/vc-ie8.min.css" media="screen"><![endif]--><style type="text/css" title="dynamic-css" class="options-output">h1,h2{font-family:Engagement;font-weight:400;font-style:normal;}h3,h4,h5,h6,.btn{font-family:Open Sans;font-weight:800;font-style:normal;}body{font-family:PT Serif;font-weight:400;font-style:normal;}.navbar-default,.btn-primary,.fact-item.img-circle,.hover-effect span,#rsvp,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus{background-color:#d6516d;}a,h6,.heading i,.countdown-period,.social-icons a:hover,.post-header span{color:#d6516d;}.heading span,.social-icons a:hover{border-color:#d6516d;}.navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.active>a:hover,.navbar-default .navbar-nav>.active>a:focus,.btn-primary:hover,.navbar-default .navbar-nav>.open>a,.navbar-default .navbar-nav>.open>a:hover,.navbar-default .navbar-nav>.open>a:focus,.navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus,.navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.active>a:hover,.navbar-default .navbar-nav>.active>a:focus{background-color:#ce3052;}a:hover{color:#ce3052;}</style><noscript><style type="text/css">.wpb_animate_when_almost_visible{opacity:1;}</style></noscript>
-</head><body data-spy="scroll" data-target=".navbar-collapse" class="home page page-id-5 page-parent page-template page-template-page-home page-template-page-home-php wpb-js-composer js-comp-ver-4.11.2.1 vc_responsive" onload="load()">
+</head><body data-spy="scroll" data-target=".navbar-collapse" class="home page page-id-5 page-parent page-template page-template-page-home page-template-page-home-php wpb-js-composer js-comp-ver-4.11.2.1 vc_responsive">
+	<button id="btnpp" onclick="play()" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;border-radius: 100%;height: 40px;width: 40px;color:white;border: none;display: inline-block;text-align: center;cursor: pointer;background: rgba(0, 0, 0, 0.5) !important;"><span style="
+    width: 40px;
+    height: 40px;">
+		<img src="imgs/play.png" style="margin-top: -5px; margin-left: 2px;" id="pp">
+	</span></button>
 	<section id="slider-container" data-date="1487242800"><div id="slides" data-pause="5000" data-speed="2000"><div class="slides-container"><img src="imgs/banner5.jpg" alt=""><img src="imgs/banner4.jpg" alt=""><img src="imgs/banner3.jpg" alt=""><img src="imgs/banner2.jpg" alt=""><img src="imgs/banner1.jpg" alt=""></div></div><div class="tint"><div class="welcome text-center" data-scroll-reveal="enter from the top after 2s"><h1>Kajal & Tushar</h1><p>are getting married</p><p><span></span><i class="fa fa-heart"></i><span></span></p><p>Feb 16th, 2017</p></div></div><div class="countdown" data-scroll-reveal="enter from the bottom after 2.5s"></div> </section>
 <div class="navbar navbar-default">
 <div class="container">
@@ -136,12 +135,39 @@ You are a beautiful Angel</p></div><div class="mobile-divider"><span></span><i c
 </section>
 <footer id="footer">
 <div class="container text-center" data-scroll-reveal>
-<button onclick="play()">press</button>
-<audio  id="myaudio" preload controls >
+
+<audio  id="myaudio" preload autoplay >
 		<source src="music/test.mp3" type="audio/mp3">
 		<source src="music/test.ogg" type="audio/ogg">
 		<p>If you are reading this, it is because your browser does not support the audio element.     </p>
-	</audio>© 2014 Perfect Couple - Premium WordPress Theme by <a href="http://themeforest.net/user/Coffeecream/portfolio" target="_blank">Coffeecream Themes</a> </div>
+	</audio>
+	<script type="text/javascript">
+	var ado;
+	ado= document.getElementById('myaudio');
+	ado.onplay = function() {
+    	var btn=document.getElementById('btnpp');
+		var img=document.getElementById('pp');		
+		btn.setAttribute("onclick","pause()");
+		img.src="imgs/pause.png";
+
+	};
+	ado.onpause = function() {
+    	var btn=document.getElementById('btnpp');
+		var img=document.getElementById('pp');
+		btn.setAttribute("onclick","play()");
+		img.src="imgs/play.png";
+
+	};
+	function play(){
+		ado= document.getElementById('myaudio');
+		ado.play();
+	}
+	function pause(){
+		ado= document.getElementById('myaudio');
+		ado.pause();
+	}
+</script>
+	© 2014 Perfect Couple - Premium WordPress Theme by <a href="http://themeforest.net/user/Coffeecream/portfolio" target="_blank">Coffeecream Themes</a> </div>
 </footer>
 <script type='text/javascript' src='http://www.coffeecreamthemes.com/themes/perfectcouple/wordpress/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js'></script>
 <script type='text/javascript'>
