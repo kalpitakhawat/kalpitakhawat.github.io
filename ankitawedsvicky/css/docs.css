@@ -33,7 +33,34 @@ section {padding:66px 0 0 0;}
 ::-moz-placeholder {opacity:1;}
 :-ms-input-placeholder {opacity:1;}
 :-moz-placeholder {opacity:1;}
-
+/*---------------------------------------
+   Preloader
+-----------------------------------------*/
+#preloader {
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10000000000000000000;
+    width: 100%;
+    height: 100%;
+    transition:0.8s linear;
+}
+#status {
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
 /*---------------------------------------
    Banner
 -----------------------------------------*/
