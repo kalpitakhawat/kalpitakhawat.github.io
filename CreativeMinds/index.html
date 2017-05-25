@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="css/custom.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <!-- Side Navbar Start -->
+      <nav class="blue-nav">
+        <a href="#" class="brand-logo">Logo</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#!">Flights</a></li>
+          <li><a href="#!">Hotels</a></li>
+          <li><a href="#!">Holidays</a></li>
+          <li><a href="#!">Rails</a></li>
+          <li><a href="#!">Bus</a></li>
+        </ul>
+        <ul id="slide-out" class="side-nav">
+          <li><div class="userView">
+          <div class="background">
+          <img src="imgs/office.jpg" height="170px">
+          </div>
+          <a href="#!user"><img class="circle" src="imgs/user.png"></a>
+          <a href="#!name"><span class="white-text name">John Doe</span></a>
+          <a href="#!email"><span class="white-text email">mymale@gmail.com</span></a>
+          </div></li>
+          <li><a href="#!"><i class="material-icons">flight</i>Flights</a></li>
+          <li><a href="#!"><i class="material-icons">hotel</i>Hotels</a></li>
+          <li><a href="#!"><i class="material-icons">directions_walk</i>Holidays</a></li>
+          <li><a href="#!"><i class="material-icons">train</i>Rails</a></li>
+          <li><a href="#!"><i class="material-icons">directions_bus</i>Bus</a></li>
+          <li><div class="divider"></div></li>
+          <li><a href="#!"><i class="material-icons">settings</i>Account Setting</a></li>
+          <li><a href="#!"><i class="material-icons">message</i>Help & Support</a></li>
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+      </nav>
+    <!-- Side Navbar End -->
+    <!-- Scripts Start -->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript">
+        $('.button-collapse').sideNav({
+          menuWidth: 300, // Default is 240
+          closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        });
+      </script>
+    <!-- Scripts End -->
+  </body>
+</html>
