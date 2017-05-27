@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="theme-color" content="#124680" />
     <meta charset="utf-8">
-    <title></title>
+    <title>Home</title>
   </head>
   <body>
     <!-- Side Navbar Start -->
@@ -28,8 +28,8 @@
           <img src="imgs/office.jpg" height="170px">
           </div>
           <a href="#!user"><img class="circle" src="imgs/user.png"></a>
-          <a href="#!name"><span class="white-text name">John Doe</span></a>
-          <a href="#!email"><span class="white-text email">mymale@gmail.com</span></a>
+          <a href="#!name"><span class="white-text name">Get Personalized Experience</span></a>
+          <a href="login.html"><span class="white-text email">Login</span></a>
           </div></li>
           <li><a href="#!"><i class="material-icons">flight</i>Flights</a></li>
           <li><a href="#!"><i class="material-icons">hotel</i>Hotels</a></li>
@@ -43,14 +43,38 @@
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
       </nav>
     <!-- Side Navbar End -->
+    <!-- Container Start -->
+    <div class="carousel carousel-slider">
+      <a class="carousel-item" href="#one!"><img src="http://lorempixel.com/800/400/food/1"></a>
+      <a class="carousel-item" href="#two!"><img src="http://lorempixel.com/800/400/food/2"></a>
+      <a class="carousel-item" href="#three!"><img src="http://lorempixel.com/800/400/food/3"></a>
+      <a class="carousel-item" href="#four!"><img src="http://lorempixel.com/800/400/food/4"></a>
+    </div>
+    <div class="container">
+      <div class="section">
+        <div class="row">
+          <div class="col s12">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Container End -->
     <!-- Scripts Start -->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/slider.js"></script>
       <script type="text/javascript">
         $('.button-collapse').sideNav({
           menuWidth: 300, // Default is 240
           closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
         });
+        $('.carousel.carousel-slider').carousel({fullWidth: true});
+        autoplay()
+        function autoplay() {
+            $('.carousel').carousel('next');
+            setTimeout(autoplay, 4500);
+        }
       </script>
     <!-- Scripts End -->
   </body>
