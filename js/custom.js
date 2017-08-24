@@ -441,43 +441,43 @@
 	/* ---------------------------------------------
 	 Google Map
 	 --------------------------------------------- */
-	function initGoogleMap(){
-		$('.contact-map-btn').on('click', function(){
-			$('.g-map-wrapper').toggleClass('g-map-visible');
-		});
+	// function initGoogleMap(){
+	// 	$('.contact-map-btn').on('click', function(){
+	// 		$('.g-map-wrapper').toggleClass('g-map-visible');
+	// 	});
 
-		var latitude = document.getElementById('g-map').getAttribute('data-latitude'),
-			longitude = document.getElementById('g-map').getAttribute('data-longitude');
-		var mapOptions = {
-			scrollwheel: false,
-			zoom: 14,
-			center: new google.maps.LatLng(latitude, longitude),
-			zoomControlOptions: {
-				position: google.maps.ControlPosition.TOP_RIGHT
-			},
-			styles: [{featureType:"landscape",stylers:[{saturation:-100},{lightness:65},{visibility:"on"}]},{featureType:"poi",stylers:[{saturation:-100},{lightness:51},{visibility:"simplified"}]},{featureType:"road.highway",stylers:[{saturation:-100},{visibility:"simplified"}]},{featureType:"road.arterial",stylers:[{saturation:-100},{lightness:30},{visibility:"on"}]},{featureType:"road.local",stylers:[{saturation:-100},{lightness:40},{visibility:"on"}]},{featureType:"transit",stylers:[{saturation:-100},{visibility:"simplified"}]},{featureType:"administrative.province",stylers:[{visibility:"off"}]/**/},{featureType:"administrative.locality",stylers:[{visibility:"off"}]},{featureType:"administrative.neighborhood",stylers:[{visibility:"on"}]/**/},{featureType:"water",elementType:"labels",stylers:[{visibility:"on"},{lightness:-25},{saturation:-100}]},{featureType:"water",elementType:"geometry",stylers:[{hue:"#ffff00"},{lightness:-25},{saturation:-97}]}]
-		};
-		var contentString = '<div id="mapcontent">I\'M HERE!</div>';
-		var infowindow = new google.maps.InfoWindow({
-			maxWidth: 320,
-			content: contentString
-		});
-		var mapElement = document.getElementById('g-map');
-		var map = new google.maps.Map(mapElement, mapOptions);
-		var image = new google.maps.MarkerImage('img/marker.png',
-			null, null, null, new google.maps.Size(34,48))
+	// 	var latitude = document.getElementById('g-map').getAttribute('data-latitude'),
+	// 		longitude = document.getElementById('g-map').getAttribute('data-longitude');
+	// 	var mapOptions = {
+	// 		scrollwheel: false,
+	// 		zoom: 14,
+	// 		center: new google.maps.LatLng(latitude, longitude),
+	// 		zoomControlOptions: {
+	// 			position: google.maps.ControlPosition.TOP_RIGHT
+	// 		},
+	// 		styles: [{featureType:"landscape",stylers:[{saturation:-100},{lightness:65},{visibility:"on"}]},{featureType:"poi",stylers:[{saturation:-100},{lightness:51},{visibility:"simplified"}]},{featureType:"road.highway",stylers:[{saturation:-100},{visibility:"simplified"}]},{featureType:"road.arterial",stylers:[{saturation:-100},{lightness:30},{visibility:"on"}]},{featureType:"road.local",stylers:[{saturation:-100},{lightness:40},{visibility:"on"}]},{featureType:"transit",stylers:[{saturation:-100},{visibility:"simplified"}]},{featureType:"administrative.province",stylers:[{visibility:"off"}]/**/},{featureType:"administrative.locality",stylers:[{visibility:"off"}]},{featureType:"administrative.neighborhood",stylers:[{visibility:"on"}]/**/},{featureType:"water",elementType:"labels",stylers:[{visibility:"on"},{lightness:-25},{saturation:-100}]},{featureType:"water",elementType:"geometry",stylers:[{hue:"#ffff00"},{lightness:-25},{saturation:-97}]}]
+	// 	};
+	// 	var contentString = '<div id="mapcontent">I\'M HERE!</div>';
+	// 	var infowindow = new google.maps.InfoWindow({
+	// 		maxWidth: 320,
+	// 		content: contentString
+	// 	});
+	// 	var mapElement = document.getElementById('g-map');
+	// 	var map = new google.maps.Map(mapElement, mapOptions);
+	// 	var image = new google.maps.MarkerImage('img/marker.png',
+	// 		null, null, null, new google.maps.Size(34,48))
 
-		var myLatLng = new google.maps.LatLng(latitude, longitude);
-		var marker = new google.maps.Marker({
-			position: myLatLng,
-			map: map,
-			icon: image,
-			title: 'Hello World!'
-		});
+	// 	var myLatLng = new google.maps.LatLng(latitude, longitude);
+	// 	var marker = new google.maps.Marker({
+	// 		position: myLatLng,
+	// 		map: map,
+	// 		icon: image,
+	// 		title: 'Hello World!'
+	// 	});
 
-		google.maps.event.addListener(marker, 'click', function() {
-			infowindow.open(map,marker);
-		});
-	}
+	// 	google.maps.event.addListener(marker, 'click', function() {
+	// 		infowindow.open(map,marker);
+	// 	});
+	// }
 
 })(jQuery);
