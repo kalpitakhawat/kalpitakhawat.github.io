@@ -13,24 +13,24 @@
 	initBlogImageHeight();
 	initSectionHightlight();
 	initImageBackground();
-	initSearchArea();
+	// initSearchArea();
 	initAnimateScroll();
 	initNavMenu();
 	initMagnificPopup();
 	initPortfolio();
-	initMasonry();
+	// initMasonry();
 	initProgressBar();
-	initCarousel();
+	// initCarousel();
 	// initWowAnimation();
 	initContactForm();
-	initGoogleMap();
+	// initGoogleMap();
 
 
 	/* ---------------------------------------------
 	 Initializing Functions Triggered On Window Resize
 	 --------------------------------------------- */
 	$(window).resize(function(){
-		initRespNavMenu();
+		// initRespNavMenu();
 		initAboutImgHeight();
 		initBlogImageHeight();
 		initPortfolioResize();
