@@ -458,22 +458,22 @@
 					</div>
 					<div class="col l7 m7 s12 contact-form pdr-0">
 						<div class="col s12 w-block z-depth-1 shadow-change pdt-10 pdr-30 pdb-30 pdl-30">
-							<form id="c-form" class="c-form" action="intro.html#0" method="post">
+							<form id="c-form" class="c-form" action="#" method="post" >
 								<fieldset>
 									<div class="input-field">
-										<input id="name" type="text" name="name" class="validate">
+										<input id="name" type="text" name="name" class="validate" required>
 										<label for="name">Name</label>
 									</div>
 									<div class="input-field">
-										<input id="email" type="email" name="email" class="validate">
+										<input id="email" type="email" name="email" class="validate" required>
 										<label for="email">Email</label>
 									</div>
 									<div class="input-field">
-										<textarea id="message" name="message" class="materialize-textarea validate"></textarea>
+										<textarea id="message" name="message" class="materialize-textarea validate" required></textarea>
 										<label for="message">Message</label>
 									</div>
 									<div>
-										<button class="btn waves-effect waves-light" type="submit" name="button">Send Message</button>
+										<button class="btn waves-effect waves-light" type="submit" id="sbmit" name="button">Send Message</button>
 										<span id="c-form-status" class="hidden"></span>
 									</div>
 								</fieldset>
@@ -515,6 +515,21 @@
 		<script type="text/javascript" src="/js/smoothscroll.js"></script>
 		<script type="text/javascript" src="/js/validator.min.js"></script>
 		<script type="text/javascript" src="/js/waypoints.min.js"></script>
+		
+		<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+		<script>
+		  // Initialize Firebase
+		  var config = {
+		    apiKey: "AIzaSyA1jMtW-eFc8SM6ugiH0I8gIzG895CeoC8",
+		    authDomain: "portfolio-f2888.firebaseapp.com",
+		    databaseURL: "https://portfolio-f2888.firebaseio.com",
+		    projectId: "portfolio-f2888",
+		    storageBucket: "portfolio-f2888.appspot.com",
+		    messagingSenderId: "797356914133"
+		  };
+		  firebase.initializeApp(config);
+		  var db=firebase.database();
+		</script>
 		<!-- <script type="text/javascript" src="/js/wow.js"></script> -->
 		<!-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA2s8Dc-tOHNpSnwh9YvdH-jcU5Jh1h_UY"></script> -->
 		<script type="text/javascript" src="/js/custom.js"></script>

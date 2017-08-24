@@ -404,24 +404,17 @@
 		});
 
 		function submitForm(){
-			var name = $("#name").val();
-			var email = $("#email").val();
-			var message = $("#message").val();
-
-			$.ajax({
-				type: "POST",
-				url: "inc/form-process.php",
-				data: "name=" + name + "&email=" + email + "&message=" + message,
-				success : function(text){
-					if (text == "success"){
-						formSuccess();
-					} else{
-						submitMSG(false,text);
-					}
-				}
-			});
-		}
-
+			var nm = $("#name").val();
+			var em = $("#email").val();
+			var ms = $("#message").val();
+    		var b = Date.now();
+			firebase.database().ref('msgs/').push({
+		        name: nm,
+		        email: em,
+		        message: ms,
+		        time: b,
+		    })
+		}	
 		function formSuccess(){
 			$("#c-form")[0].reset();
 			submitMSG(true, "WE'VE GOT YOUR MESSAGE! THANK YOU!")
