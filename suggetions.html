@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyA1jMtW-eFc8SM6ugiH0I8gIzG895CeoC8",
+			authDomain: "portfolio-f2888.firebaseapp.com",
+			databaseURL: "https://portfolio-f2888.firebaseio.com",
+			projectId: "portfolio-f2888",
+			storageBucket: "portfolio-f2888.appspot.com",
+			messagingSenderId: "797356914133"
+		};
+		firebase.initializeApp(config);
+		var db=firebase.database();
+		var ref = firebase.database().ref('msgs');
+		var data=new Array();
+		ref.on("value", function(snapshot) {
+			var snp=snapshot.val();
+			snapshot.forEach(function (childSnapshopt) {
+				var ck=childSnapshopt.key;
+				//console.log(snp[ck]);
+				data.push(snp[ck]);
+			})
+			//console.log(snapshot.val());
+		}, function (error) {
+			console.log("Error: " + error.code);
+		});
+		console.log(data);
+	</script>
+</head>
+<body>
+<table border="1px" cellspacing="0">
+	<thead>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Message</th>
+		<th>time</th>
+	</thead>
+</table>
+</body>
+</html>
