@@ -408,12 +408,22 @@
 			var em = $("#email").val();
 			var ms = $("#message").val();
     		var b = Date.now();
-			firebase.database().ref('msgs/').push({
-		        name: nm,
-		        email: em,
-		        message: ms,
-		        time: b,
-		    })
+    		try{
+
+				firebase.database().ref('msgs/').push({
+			        name: nm,
+			        email: em,
+			        message: ms,
+			        time: b,
+			    }).then(function () {
+			    	formSuccess();
+			    } ).catch(function (error) {
+			    	submitMSG(false,error);
+			    });
+    		}
+    		catch(err){
+				
+    		}
 		}	
 		function formSuccess(){
 			$("#c-form")[0].reset();

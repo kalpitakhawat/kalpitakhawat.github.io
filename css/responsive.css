@@ -173,6 +173,11 @@
 	.single-portfolio-desc{
 		padding: 20px 30px;
 	}
+	.c-form-alert{
+		position: unset;
+		margin-top: 15px;
+	}
+
 
 }
 @media only screen and (max-width: 460px){
