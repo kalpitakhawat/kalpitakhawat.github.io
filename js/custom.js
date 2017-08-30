@@ -427,7 +427,7 @@
 		}	
 		function formSuccess(){
 			$("#c-form")[0].reset();
-			submitMSG(true, "WE'VE GOT YOUR MESSAGE! THANK YOU!")
+			submitMSG(true, "I'VE GOT YOUR MESSAGE! THANK YOU!")
 		}
 
 		function submitMSG(valid, msg){

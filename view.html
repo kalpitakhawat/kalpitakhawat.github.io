@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style type="text/css">
+		[v-cloak] {
+		  display: none;
+		}
+		.loader{
+			position: fixed;
+			top: 0;
+			left:0;
+			width:100%;
+			height:100%;
+			background-color: white;
+			z-itransition: 0.8s linear;ndex: 1000;
+			
+		}
+		.load {
+		  border: 16px solid #f3f3f3;
+		  border-radius: 50%;
+		  border-top: 16px solid #3498db;
+		  width: 120px;
+		  height: 120px;
+		  margin:0 auto;
+		  margin-top: 20%;
+		  -webkit-animation: spin 2s linear infinite;
+		  animation: spin 2s linear infinite;
+		}
+
+		@-webkit-keyframes spin {
+		  0% { -webkit-transform: rotate(0deg); }
+		  100% { -webkit-transform: rotate(360deg); }
+		}
+
+		@keyframes spin {
+		  0% { transform: rotate(0deg); }
+		  100% { transform: rotate(360deg); }
+		}
+	</style>
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<div v-cloak>
+			<div class="loader" v-if="status === 'false'">
+				<div class="load"></div>
+			</div>
+		
+			<div class="container-fluid">
+				<div class="page-header">
+				 	<h1>Feedbacks</h1>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						
+						<div class="panel panel-default ">
+						  <div class="panel-heading">Messages <span class="badge" style="float: right;">{{length}}</span></div>
+						  <div class="panel-body">
+							<div class="list-group">
+							  <a href="#" class="list-group-item" v-for="user in users">
+							    	<h4 class="list-group-item-heading">{{user.name}}</h4>
+				    				<p class="list-group-item-text"> {{user.message}} </p>
+				    				<small class="list-group-item-text">{{user.email}}</small>
+				    				<p class="list-group-item-text text-right" > <span class="label label-info">{{user.timeAgo}}</span></p>
+							    
+							  </a>
+							</div>
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- Vue -->
+	<script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
+	<!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+	<!-- VueFire -->
+	<script src="https://cdn.jsdelivr.net/vuefire/1.0.0/vuefire.min.js"></script>
+	<script type="text/javascript">
+		var config = {
+			apiKey: "AIzaSyA1jMtW-eFc8SM6ugiH0I8gIzG895CeoC8",
+			authDomain: "portfolio-f2888.firebaseapp.com",
+			databaseURL: "https://portfolio-f2888.firebaseio.com",
+			projectId: "portfolio-f2888",
+			storageBucket: "portfolio-f2888.appspot.com",
+			messagingSenderId: "797356914133"
+		};
+		firebase.initializeApp(config);
+		var db= firebase.database();
+		var usersRef = db.ref('msgs');
+		usersRef.on('value', function(snapshot) {
+		  app.status="true";
+		  app.users = snapshot.val();
+		})
+		function timeAgo(date_time) {
+			                //to get unix timestamp
+                var currentDate = Math.round(+new Date()/1000);
+                var tweetDate = Math.round(+new Date(date_time)/1000); 
+                //alert(tweetDate);
+                var diffTime = currentDate - tweetDate;
+                //alert(diffTime);
+                if (diffTime < 59) return 'less than a minute ago';
+                else if(diffTime > 59 && diffTime < 120) return 'about a minute ago';
+                else if(diffTime >= 121 && diffTime <= 3600) return (parseInt(diffTime / 60)).toString() + ' minutes ago';
+                else if(diffTime > 3600 && diffTime < 7200) return '1 hour ago';
+                else if(diffTime > 7200 && diffTime < 86400) return (parseInt(diffTime / 3600)).toString() + ' hours ago';
+                else if(diffTime > 86400 && diffTime < 172800) return '1 day ago';
+                else if(diffTime > 172800 && diffTime < 604800) return (parseInt(diffTime / 86400)).toString() + ' days ago';
+                else if(diffTime > 604800 && diffTime < 12089600) return '1 week ago';
+                else if(diffTime > 12089600 && diffTime < 2630880) return (parseInt(diffTime / 604800)).toString() + ' weeks ago';
+                else if(diffTime > 2630880 && diffTime < 5261760) return '1 month ago';
+                else if(diffTime > 5261760 && diffTime < 31570560) return (parseInt(diffTime / 2630880)).toString() + ' months ago';
+                else if(diffTime > 31570560 && diffTime < 63141120) return '1 year ago';
+                else return (parseInt(diffTime / 31570560)).toString() + ' years ago';
+            }
+		var	app = new Vue({
+			el: '#app',
+			data:{
+				users:[],
+				length:"0",
+				status:"false",
+			},
+			watch:{
+				users:function (e) {
+					var self = this;
+					self.length=Object.keys(self.users).length
+					for(var k in self.users){
+						self.users[k]['timeAgo']=timeAgo(self.users[k]['time']);
+					}				
+				},				
+			}
+		});
+	</script>
+</body>
+</html>
