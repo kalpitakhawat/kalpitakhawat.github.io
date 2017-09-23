@@ -140,6 +140,7 @@
 			watch:{
 				users:function (e) {
 					var self = this;
+					console.log(self.users);
 					self.length=Object.keys(self.users).length
 					for(var k in self.users){
 						self.users[k]['timeAgo']=timeAgo(self.users[k]['time']);
