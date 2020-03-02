@@ -1001,9 +1001,9 @@ blockquote:before,
     left: 0;
     height: 50px;
     width: 100%;
-    background-color: #070708;
+    /* background-color: #070708;
 	-webkit-box-shadow: 0 0px 50px 0 #000;
-    		box-shadow: 0 0px 50px 0 #000;
+    		box-shadow: 0 0px 50px 0 #000; */
     z-index: 10;
     display: none;
     -webkit-transition: all .3s ease-in-out;
