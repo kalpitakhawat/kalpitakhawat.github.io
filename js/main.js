@@ -197,26 +197,36 @@ $(document).ready(function () {
                 },
 
                 email: "required",
-
             },
 
             messages: {
                 name: "Please enter your name",
-                email: "Please enter your email address"
+                email: "Please enter your email address",
             },
 
             submitHandler: function (form) {
+                console.log($(form).serialize());
+
                 $.ajax({
-                    type: "POST",
-                    url: "/mail.php",
-                    data: $(form).serialize(),
-                    success: function () {
-                        $("#loader").hide();
-                        $("#success").slideDown("slow");
-                        setTimeout(function () {
-                            $("#success").slideUp("slow");
-                        }, 3000);
-                        form.reset();
+                    type: "GET",
+                    url: `https://us-central1-portfolio-f2888.cloudfunctions.net/sendMessage?${$(form).serialize()}`,
+                    // data: $(form).serialize(),
+                    success: function (data) {
+                        console.log(data);
+                        if (data.status == 200) {
+                            $("#loader").hide();
+                            $("#success").slideDown("slow");
+                            setTimeout(function () {
+                                $("#success").slideUp("slow");
+                            }, 3000);
+                            form.reset();
+                        } else {
+                            $("#loader").hide();
+                            $("#error").slideDown("slow");
+                            setTimeout(function () {
+                                $("#error").slideUp("slow");
+                            }, 3000);
+                        }
                     },
                     error: function () {
                         $("#loader").hide();
