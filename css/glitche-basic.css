@@ -584,7 +584,7 @@ blockquote {
 
 /* Animations */
 /* Glitch Animations */
-@media (min-width: 580px) {
+/* @media (min-width: 580px) { */
 	.glitch-effect,
 	.glitch-effect-white {
 		position: relative;
@@ -622,7 +622,7 @@ blockquote {
 		animation: glitch-2 2s infinite linear alternate-reverse;
 	}
 
-}
+/* } */
 
 @keyframes glitch-1 {
 	0% {
