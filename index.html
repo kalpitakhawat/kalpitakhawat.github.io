@@ -55,6 +55,8 @@
           <li><a target="_blank" href="https://github.com/kalpitakhawat"><i class="lni lni-github"></i></a>
           </li>
           <li><a target="_blank" href="https://twitter.com/_constellati0n"><i class="lni lni-twitter"></i></a></li>
+          <li><a target="_blank" href="#"><i class="lni lni-empty"></i></a></li>
+          <li></li>
         </ul>
       </header>
 
@@ -655,6 +657,42 @@
       s1.setAttribute('crossorigin', '*');
       s0.parentNode.insertBefore(s1, s0);
     })();
+  </script>
+  <script>
+    function isPC() {
+      return window.innerWidth > 960; // Example threshold for detecting PC (adjust as needed)
+    }
+    // Function to update styles when iframe is loaded into the UI
+    function updateIframeStylesOnLoad() {
+      const iframe = document.querySelector('.widget-visible > iframe');
+      iframe.style.left = '11px'; // Example value
+      iframe.style.bottom = '2px';
+
+      if (iframe) {
+        // Add a load event listener to the iframe
+        iframe.addEventListener('load', () => {
+          // Change left and bottom styles after iframe is loaded
+          iframe.style.left = '50px'; // Example value
+          iframe.style.bottom = '30px'; // Example value
+          console.log('Iframe styles updated after load.');
+        });
+      }
+    }
+
+    // Monitor for the addition of the iframe to the DOM
+    const observer = new MutationObserver(() => {
+      const iframe = document.querySelector('.widget-visible > iframe');
+      if (iframe && isPC()) {
+
+        updateIframeStylesOnLoad();
+        observer.disconnect(); // Stop observing once the iframe is found
+      }
+    });
+
+    // Observe the body or a specific parent node of the widget for changes
+    const targetNode = document.body; // Adjust this to observe a more specific parent if needed
+    observer.observe(targetNode, { childList: true, subtree: true });
+
   </script>
 </body>
 
