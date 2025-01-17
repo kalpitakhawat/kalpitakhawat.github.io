@@ -55,8 +55,8 @@
           <li><a target="_blank" href="https://github.com/kalpitakhawat"><i class="lni lni-github"></i></a>
           </li>
           <li><a target="_blank" href="https://twitter.com/_constellati0n"><i class="lni lni-twitter"></i></a></li>
-          <li><a target="_blank" href="#"><i class="lni lni-empty"></i></a></li>
-          <li></li>
+          <li id="empty-link-placeholder" style="display: none;"><a target="_blank" href="#"><i
+                class="lni lni-empty"></i></a></li>
         </ul>
       </header>
 
@@ -683,7 +683,8 @@
     const observer = new MutationObserver(() => {
       const iframe = document.querySelector('.widget-visible > iframe');
       if (iframe && isPC()) {
-
+        const linkPlaceholder = document.querySelector('#empty-link-placeholder');
+        linkPlaceholder.style.display = "block"
         updateIframeStylesOnLoad();
         observer.disconnect(); // Stop observing once the iframe is found
       }
